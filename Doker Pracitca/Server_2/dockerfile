@@ -1,0 +1,19 @@
+# Utiliza una imagen de python 3.8
+FROM python:3.8
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiasr todos los archivos desde el host al contenedor
+# 1. Directorio de host
+# 2. Directorio del contenedor
+COPY . .
+
+# Instalar dependencias
+RUN pip install Flask
+
+# Puerto que expone el contenedor
+EXPOSE 4004
+
+# Comando que se ejecuta cuando se inicia el contenedor
+CMD ["python", "app.py"]
